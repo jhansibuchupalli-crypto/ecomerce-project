@@ -153,3 +153,28 @@ document.getElementById("cartCount").innerText = totalItems;
 
 }
 filterProducts("all");
+// SEARCH FILTER LOGIC (Updated for all pages)
+
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('searchInput');
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchTermFromURL = urlParams.get('search');
+
+    if (searchInput && searchTermFromURL) {
+        searchInput.value = searchTermFromURL; 
+        
+        
+        const searchTerm = searchTermFromURL.toLowerCase();
+        const productCards = document.querySelectorAll('.product-card');
+
+        productCards.forEach(card => {
+            const productName = card.querySelector('h3').textContent.toLowerCase();
+            if (productName.includes(searchTerm)) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+});
