@@ -4,7 +4,7 @@ let products=[
         name:"Earbuds",
         description:"Wireless earbuds with clear sound,comfortable fit,and a compact charging case.perfect for music,calls,and everyday use.",
         price:"999",
-        image:"images/earbuds.jpg",
+        image:"images/Earbuds.jpg",
         category:"Electronics"
     },
     {
