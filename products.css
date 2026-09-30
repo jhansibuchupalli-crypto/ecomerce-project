@@ -1,0 +1,81 @@
+main{
+    padding-top:200px;
+    background-color:white;
+}
+.actions{
+    display:flex;
+    align-items:centers;
+    gap:20px;
+}
+.cart-pill {
+    position:relative;
+    display:inline-block;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+}
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  color: white;
+  font-size: 19px;
+  font-weight: bold;
+  padding: 5px -6px;
+  border-radius: 50%;
+  min-width: 16px;
+  text-align: center;
+}
+.products-container{
+    display:flex;
+    gap:80px;
+}
+.filter-section{
+    width:250px;
+    position:sticky;
+    top:180px;
+    align-self:flex-start;
+}
+.filter-category label{
+    display:block;
+    margin-bottom:10px;
+}
+
+/* Right side */
+#productgrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    fllex:1;
+}
+
+/* Product card */
+.product-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.product-card h3 {
+    margin: 10px 0;
+}
+
+.product-card p {
+    color: gray;
+}
+
+.product-card h4 {
+    font-size: 18px;
+}
+
+.product-card button {
+    padding: 10px 15px;
+    cursor: pointer;
+    background-color:rgb(233, 42, 42);
+}

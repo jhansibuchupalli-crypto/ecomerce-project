@@ -1,0 +1,95 @@
+main{
+    padding-top:200px;
+}
+.hero img{
+    height:700px;
+    width:100%;
+}
+.our-mission h1,h2,pre{
+text-align:center;
+}
+.our-mission h2{
+    color:rgb(59, 13, 199);
+    text-decoration:underline;
+}
+.category-container{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:20px;
+}
+.we-offer{
+    padding:20px;
+    background-color:#F4F8FF;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+.we-offer h2{
+    color:#172B4D;
+    text-decoration:underline;
+}
+.icon{
+    font-size:50px;
+    text-align:center;
+}
+.category-card{
+    background-color:white;
+    border-radius:15px;
+    padding:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+.category-card h3{
+    text-align:center;
+}
+.about-campuskart{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    padding:40px;
+    background-color:#F4F8FF;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+.about h2{
+    color:#1769E0;
+    text-align:start;
+}
+.about{
+    text-align:start;
+    margin:50px;
+}
+.about a{
+    background-color:rgb(174, 110, 200);
+    text-decoration:none;
+    color:white;
+    padding:5px;
+    border-radius:5px;
+}
+.campuskart img{
+     width:100%;
+     object-fit:cover;
+     border-radius:20px;
+}
+.vision{
+    display:flex;
+    gap:80px;
+    padding:20px;
+    background-color:#F4F8FF;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+.vision-icon{
+    margin-left:35px;
+    font-size:100px;
+
+}
+.section{
+    text-align:center;
+     background-color:#F4F8FF;
+     box-shadow:0 4px 10px rgba(0,0,0,0.2);
+     padding:20px;
+     padding-bottom:50px;
+}
+.section a{
+    background-color:rgb(134, 134, 245);
+    color:white;
+    text-decoration:none;
+    padding:10px;
+    border-radius:5px;
+}

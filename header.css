@@ -1,0 +1,44 @@
+header{
+     background-color:#0066cc; 
+     position:fixed;
+     top:0;
+     left:0;
+     width:100%;
+     z-index:1000;  
+}
+.header-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:50px;
+}
+header img{
+    mix-blend-mode:multiply;
+}
+.search-box input{
+    box-sizing:border-box;
+    width:400px;
+    padding:5px;
+    margin-left:400px;
+}
+.actions{
+    display:flex;
+    gap:70px;
+}
+.actions a{
+    text-decoration:none;
+    font-size:30px;
+}
+.login-btn{
+    background-color:red;
+}
+nav{
+    display:flex;
+    gap:50px;
+    padding:15px 100px 15px 760px;
+}
+nav a{
+    text-decoration:none;
+    color:white;
+
+}
