@@ -49,18 +49,89 @@ nav a{
 main{
     padding-top:200px;
 }
-/*hero section*/
-.hero{
-    width:100%;
-    display:flex;
-    gap:100px;
-    background-color:#EAF4FF;
-    align-items:center;
+/* ===== HERO SECTION ===== */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 100px;
+    gap: 50px;
+    background-color: #EAF4FF;
+    min-height: 400px;
 }
-.hero pre{
-    padding:50px 150px 100px 150px;
-    font-size:20px;
-   
+
+.hero-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-left h1 {
+    font-size: 48px;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    color: #1a1a1a;
+    font-weight: bold;
+}
+
+.blue-text {
+    color: #0066cc;
+}
+
+.hero-left p {
+    font-size: 17px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ===== HERO BUTTONS ===== */
+.hero-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 14px 40px;
+    font-size: 17px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sell-btn {
+    background: #27ae60;
+    color: #ffffff;
+}
+
+.sell-btn:hover {
+    background: #219150;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(39, 174, 96, 0.4);
+}
+
+.buy-btn {
+    background: #3498db;
+    color: #ffffff;
+}
+
+.buy-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(52, 152, 219, 0.4);
 }
 /*categories*/
 .categories{

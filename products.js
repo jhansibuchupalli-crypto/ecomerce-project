@@ -99,6 +99,11 @@ let products=[
         image:"images/cooler.jpg"
     },
 ]
+if (!localStorage.getItem("products")) {
+    localStorage.setItem("products", JSON.stringify(products));
+} else {
+    products = JSON.parse(localStorage.getItem("products"));
+}
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -121,15 +126,16 @@ function filterProducts(category) {
 
         if (category==="all" || products[i].category === category) {
 
-            productgrid.innerHTML += `
-                <div class="product-card">
-                    <img src="${products[i].image}">
-                    <h3>${products[i].name}</h3>
-                    <p>${products[i].description}</p>
-                    <h4>₹${products[i].price}</h4>
-                    <button onclick="addToCart(${i})">Add to Cart</button>
-                </div>
-            `;
+           productgrid.innerHTML += `
+    <div class="product-card">
+        <img src="${products[i].image}">
+        <h3>${products[i].name}</h3>
+        <p>${products[i].description}</p>
+        <h4>₹${products[i].price}</h4>
+        <p class="seller-info">Sold by: ${products[i].sellerName || "CampusKart"}</p>
+        <button onclick="addToCart(${i})">Add to Cart</button>
+    </div>
+`;
         }
     }
 }
@@ -180,15 +186,16 @@ document.addEventListener("DOMContentLoaded", () => {
       productgrid.innerHTML = "";
       for (let i = 0; i < filtered.length; i++) {
         let realIndex = products.findIndex(p => p.name === filtered[i].name);
-        productgrid.innerHTML += `
-          <div class="product-card">
-            <img src="${filtered[i].image}">
-            <h3>${filtered[i].name}</h3>
-            <p>${filtered[i].description}</p>
-            <h4>₹${filtered[i].price}</h4>
-            <button onclick="addToCart(${realIndex})">Add to Cart</button>
-          </div>
-        `;
+      productgrid.innerHTML += `
+    <div class="product-card">
+        <img src="${products[i].image}">
+        <h3>${products[i].name}</h3>
+        <p>${products[i].description}</p>
+        <h4>₹${products[i].price}</h4>
+        <p class="seller-info">Sold by: ${products[i].sellerName || "CampusKart"}</p>
+        <button onclick="addToCart(${i})">Add to Cart</button>
+    </div>
+`;
       }
     }
   });

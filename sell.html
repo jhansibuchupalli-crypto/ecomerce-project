@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Product - CampusKart</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="sell.css">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <img src="images/Campuskart-logo.jpg" width="200px" height="50px">
+            <form class="search-box" id="searchForm" action="products.html">
+                <input type="text" id="searchInput" name="search" placeholder="&#128269;&nbsp;&nbsp;search-products">
+            </form>
+            <div class="actions">
+                <a href="#">&#9825</a>
+                <a href="cart.html" class="cart-pill">🛒<span id="cartCount" class="cart-badge">0</span></a>
+                <a href="login.html" class="login-btn">&#128100; Login</a>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="categories.html">Categories</a>
+            <a href="#">Deals</a>
+            <a href="#">New Arrivals</a>
+            <a href="about-us.html">About Us</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="sell-container">
+            <h2>List Your Product</h2>
+            <p class="subtitle">Have something to sell? List it on CampusKart!</p>
+
+            <form id="sellForm">
+                <label>Product Name</label>
+                <input type="text" id="productName" placeholder="e.g., Wireless Earbuds" required>
+
+                <label>Price (₹)</label>
+                <input type="number" id="productPrice" placeholder="e.g., 999" required>
+
+                <label>Category</label>
+                <select id="productCategory" required>
+                    <option value="">-- Select Category --</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Fashion">Fashion</option>
+                    <option value="Books">Books</option>
+                    <option value="Stationery">Stationery</option>
+                    <option value="Accessories">Accessories</option>
+                    <option value="Sports">Sports</option>
+                    <option value="Hostel-Essentials">Hostel-Essentials</option>
+                </select>
+
+                <label>Description</label>
+                <textarea id="productDescription" placeholder="Describe your product..." required></textarea>
+
+                <label>Image URL</label>
+                <input type="text" id="productImage" placeholder="e.g., images/earbuds.jpg" required>
+
+                <button type="submit">List Product</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="sell.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
