@@ -99,14 +99,18 @@ let products=[
         image:"images/cooler.jpg"
     },
 ]
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-let totalItems = 0;
 
-for (let i = 0; i < cart.length; i++) {
-    totalItems += cart[i].quantity || 1;
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function updateCartCount() {
+  let total = 0;
+  for (let i = 0; i < cart.length; i++) {
+    total += cart[i].quantity || 1;
+  }
+  document.getElementById("cartCount").innerText = total;
 }
 
-document.getElementById("cartCount").textContent = totalItems;
+updateCartCount();
 
 let productgrid=document.getElementById("productgrid");
 function filterProducts(category) {
@@ -143,38 +147,78 @@ function addToCart(index) {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    let totalItems = 0;
-
-    for (let i = 0; i < cart.length; i++) {
-    totalItems += cart[i].quantity;
-}
-
-document.getElementById("cartCount").innerText = totalItems;
-
+    updateCartCount();
+    alert(products[index].name + " added to cart!");
 }
 filterProducts("all");
 // SEARCH FILTER LOGIC (Updated for all pages)
 
-document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('searchInput');
-    
-    const urlParams = new URLSearchParams(window.location.search);
-    const searchTermFromURL = urlParams.get('search');
+// ===== SEARCH (Live + URL based) =====
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("searchInput");
 
-    if (searchInput && searchTermFromURL) {
-        searchInput.value = searchTermFromURL; 
-        
-        
-        const searchTerm = searchTermFromURL.toLowerCase();
-        const productCards = document.querySelectorAll('.product-card');
+ if (searchInput) {
+  searchInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      const query = searchInput.value.toLowerCase().trim();
 
-        productCards.forEach(card => {
-            const productName = card.querySelector('h3').textContent.toLowerCase();
-            if (productName.includes(searchTerm)) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
+      if (query === "") {
+        filterProducts("all");
+        return;
+      }
+
+      const filtered = products.filter(p =>
+        p.name.toLowerCase().includes(query) ||
+        p.category.toLowerCase().includes(query)
+      );
+
+      if (filtered.length === 0) {
+        alert("No products found for: " + query);
+        return;
+      }
+
+      productgrid.innerHTML = "";
+      for (let i = 0; i < filtered.length; i++) {
+        let realIndex = products.findIndex(p => p.name === filtered[i].name);
+        productgrid.innerHTML += `
+          <div class="product-card">
+            <img src="${filtered[i].image}">
+            <h3>${filtered[i].name}</h3>
+            <p>${filtered[i].description}</p>
+            <h4>₹${filtered[i].price}</h4>
+            <button onclick="addToCart(${realIndex})">Add to Cart</button>
+          </div>
+        `;
+      }
     }
+  });
+}
+
+  // ---- URL Search (from other pages) ----
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchTermFromURL = urlParams.get("search");
+
+  if (searchInput && searchTermFromURL) {
+    searchInput.value = searchTermFromURL;
+
+    const searchTerm = searchTermFromURL.toLowerCase();
+    const filtered = products.filter(p =>
+      p.name.toLowerCase().includes(searchTerm) ||
+      p.category.toLowerCase().includes(searchTerm)
+    );
+
+    productgrid.innerHTML = "";
+    for (let i = 0; i < filtered.length; i++) {
+      let realIndex = products.findIndex(p => p.name === filtered[i].name);
+      productgrid.innerHTML += `
+        <div class="product-card">
+          <img src="${filtered[i].image}">
+          <h3>${filtered[i].name}</h3>
+          <p>${filtered[i].description}</p>
+          <h4>₹${filtered[i].price}</h4>
+          <button onclick="addToCart(${realIndex})">Add to Cart</button>
+        </div>
+      `;
+    }
+  }
 });

@@ -42,3 +42,74 @@ nav a{
     color:white;
 
 }
+.user-name {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.logout-btn {
+  background: red;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+/* ===== USER DROPDOWN ===== */
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.user-name {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: 0.2s;
+  user-select: none;
+}
+
+.user-name:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #ffffff;
+  min-width: 180px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 8px;
+  z-index: 2000;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 12px 16px;
+  color: #2c3e50 !important;
+  text-decoration: none;
+  font-size: 15px !important;
+  transition: 0.2s;
+}
+
+.dropdown-menu a:hover {
+  background: #f1f1f1;
+}
+
+.dropdown-menu a:last-child {
+  color: #e74c3c !important;
+  font-weight: bold;
+}

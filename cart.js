@@ -26,10 +26,17 @@ function renderCart() {
         <img src="${cart[i].image}" width="80">
         <h4>${cart[i].name}</h4>
         <p>₹${cart[i].price}</p>
-        <p>Quantity: ${cart[i].quantity}</p>
+
+        <div class="qty-controls">
+          <button onclick="decreaseQty(${i})">−</button>
+          <span>${cart[i].quantity}</span>
+          <button onclick="increaseQty(${i})">+</button>
+        </div>
+
+        <button class="remove-btn" onclick="removeItem(${i})">🗑 Remove</button>
       </div>
     `;
-   total += Number(cart[i].price) * cart[i].quantity;
+    total += Number(cart[i].price) * cart[i].quantity;
   }
 
   document.getElementById("cartTotal").innerText = total;
@@ -37,6 +44,41 @@ function renderCart() {
 
 
 renderCart();
+// ===== INCREASE QUANTITY =====
+function increaseQty(index) {
+  cart[index].quantity++;
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCount();
+  renderCart();
+}
+
+// ===== DECREASE QUANTITY =====
+function decreaseQty(index) {
+  if (cart[index].quantity > 1) {
+    cart[index].quantity--;
+  } else {
+    cart.splice(index, 1);
+  }
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCount();
+  renderCart();
+}
+
+// ===== REMOVE ITEM =====
+function removeItem(index) {
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCount();
+  renderCart();
+}
+// ===== UPDATE HEADER COUNT =====
+function updateCount() {
+  let total = 0;
+  for (let i = 0; i < cart.length; i++) {
+    total += cart[i].quantity || 1;
+  }
+  document.getElementById("cartCount").textContent = total;
+}
 function clearCart() {
     localStorage.removeItem("cart");
     localStorage.setItem("cartCount", 0);
